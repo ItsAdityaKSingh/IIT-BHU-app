@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iit_app/external_libraries/fab_circular_menu.dart';
@@ -12,12 +13,10 @@ class NewSearchBarWidget {
 
   Widget getSearchTextField(context,
       {GlobalKey<FabCircularMenuState> fabKey, FocusNode focusNode}) {
-    Size screensize = MediaQuery.of(context).size;
-    bool isWeb = screensize.width >= 500;
     return StatefulBuilder(
       builder: (context, setState) => TextFormField(
         style: GoogleFonts.notoSans(
-          textStyle: TextStyle(fontSize: 18, height: isWeb ? 1.5 : 1.8),
+          textStyle: TextStyle(fontSize: 18, height: kIsWeb ? 1.5 : 1.8),
           fontWeight: FontWeight.w500,
         ),
         focusNode: focusNode,
@@ -31,7 +30,7 @@ class NewSearchBarWidget {
         decoration: InputDecoration(
           hintText: 'Search',
           hintStyle: TextStyle(color: Colors.black38),
-          contentPadding: EdgeInsets.symmetric(vertical: isWeb ? 12.0 : 6.5),
+          contentPadding: EdgeInsets.symmetric(vertical: kIsWeb ? 12.0 : 6.5),
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
           prefixIcon: Icon(

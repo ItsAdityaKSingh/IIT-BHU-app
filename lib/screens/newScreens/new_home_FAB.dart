@@ -1,10 +1,10 @@
 // import 'package:iit_app/external_libraries/fab_circular_menu.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 FabCircularMenu newHomeFAB(BuildContext context, {fabKey}) {
   Size screensize = MediaQuery.of(context).size;
-  bool isWeb = screensize.width >= 500;
   return FabCircularMenu(
     key: fabKey,
     fabMargin: EdgeInsets.only(
@@ -14,8 +14,8 @@ FabCircularMenu newHomeFAB(BuildContext context, {fabKey}) {
     fabElevation: 8.0,
     animationDuration: Duration(milliseconds: 800),
     ringColor: Color(0xFFb9d8ff),
-    ringDiameter: isWeb ? 250.0 : screensize.width * 0.54,
-    ringWidth: isWeb ? 50.0 : (screensize.width * 0.8) / 6.6,
+    ringDiameter: kIsWeb ? 250.0 : screensize.width * 0.54,
+    ringWidth: kIsWeb ? 50.0 : (screensize.width * 0.8) / 6.6,
     fabOpenIcon: Icon(
       Icons.menu_rounded,
       color: Color(0xFF176ede),

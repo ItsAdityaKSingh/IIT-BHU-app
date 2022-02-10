@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:iit_app/model/appConstants.dart';
 import 'package:iit_app/screens/newScreens/searchBar.dart';
@@ -5,7 +6,6 @@ import 'package:iit_app/screens/newScreens/searchBar.dart';
 AppBar newHomeAppBar(BuildContext context, NewSearchBarWidget searchBarWidget,
     FocusNode focusNode) {
   Size screensize = MediaQuery.of(context).size;
-  bool isWeb = screensize.width >= 500;
   return AppBar(
     backgroundColor: Color(0xFF176ede),
     automaticallyImplyLeading: false,
@@ -43,7 +43,7 @@ AppBar newHomeAppBar(BuildContext context, NewSearchBarWidget searchBarWidget,
         // ),
         ),
     title: Padding(
-      padding: isWeb
+      padding: kIsWeb
           ? EdgeInsets.only(left: screensize.width * 0.05)
           : EdgeInsets.only(left: 0),
       child: Row(

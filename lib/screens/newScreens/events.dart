@@ -1,4 +1,5 @@
 import 'package:chopper/chopper.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:iit_app/data/internet_connection_interceptor.dart';
 import 'package:iit_app/model/appConstants.dart';
@@ -77,11 +78,10 @@ Widget builtAllWorkshopsBodyPosts(
     BuildContext context, BuiltAllWorkshopsPost posts,
     {Function reload}) {
   Size screensize = MediaQuery.of(context).size;
-  bool isWeb = screensize.width >= 500;
   return Row(
     children: <Widget>[
       Container(
-        height: isWeb ? 250 : screensize.height * 0.285,
+        height: kIsWeb ? 250 : screensize.height * 0.285,
         child: ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
@@ -128,7 +128,7 @@ Widget builtAllWorkshopsBodyPosts(
         ),
       ),
       Container(
-        height: isWeb ? 250 : screensize.height * 0.285,
+        height: kIsWeb ? 250 : screensize.height * 0.285,
         child: ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
@@ -190,9 +190,8 @@ class EventCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screensize = MediaQuery.of(context).size;
-    bool isWeb = screensize.width >= 500;
-    var cardwidth = isWeb ? 200 : screensize.width * 0.445;
-    var cardheight = isWeb ? 200 : screensize.height * 0.245;
+    var cardwidth = kIsWeb ? 200 : screensize.width * 0.445;
+    var cardheight = kIsWeb ? 200 : screensize.height * 0.245;
     return GestureDetector(
       onTap: null,
       child: Container(

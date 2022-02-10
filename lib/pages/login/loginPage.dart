@@ -62,6 +62,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    Size screensize = MediaQuery.of(context).size;
+    bool isWeb = screensize.width >= 500;
     return SafeArea(
       minimum: const EdgeInsets.all(2.0),
       child: Scaffold(
@@ -222,18 +224,21 @@ class _LoginPageState extends State<LoginPage> {
         floatingActionButton: Visibility(
           visible: AppConstants.guestButtonEnabled ? true : false,
           child: Container(
-            height: MediaQuery.of(context).size.width * 0.20,
-            width: MediaQuery.of(context).size.width * 0.20,
+            height: isWeb ? screensize.width * 0.15 : screensize.width * 0.20,
+            width: isWeb ? screensize.width * 0.15 : screensize.width * 0.20,
             child: FloatingActionButton.extended(
               onPressed: () async {
-                await LoginPage.guestLoginSetup();
-                Navigator.of(context).pushNamedAndRemoveUntil(
-                    '/newhome', ModalRoute.withName('/root'));
+                // await LoginPage.guestLoginSetup();
+                // Navigator.of(context).pushNamedAndRemoveUntil(
+                //     '/newhome', ModalRoute.withName('/root'));
+                print(screensize.width);
+                print(screensize.height);
               },
               label: Text(
                 'Guest',
                 style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  fontSize:
+                      isWeb ? screensize.width * 0.04 : screensize.width * 0.05,
                   fontWeight: FontWeight.bold,
                 ),
               ),
