@@ -12,10 +12,12 @@ class NewSearchBarWidget {
 
   Widget getSearchTextField(context,
       {GlobalKey<FabCircularMenuState> fabKey, FocusNode focusNode}) {
+    Size screensize = MediaQuery.of(context).size;
+    bool isWeb = screensize.width >= 500;
     return StatefulBuilder(
       builder: (context, setState) => TextFormField(
         style: GoogleFonts.notoSans(
-          textStyle: TextStyle(fontSize: 18, height: 2.0),
+          textStyle: TextStyle(fontSize: 18, height: isWeb ? 1.5 : 1.8),
           fontWeight: FontWeight.w500,
         ),
         focusNode: focusNode,
@@ -29,7 +31,7 @@ class NewSearchBarWidget {
         decoration: InputDecoration(
           hintText: 'Search',
           hintStyle: TextStyle(color: Colors.black38),
-          contentPadding: EdgeInsets.symmetric(vertical: 5.0),
+          contentPadding: EdgeInsets.symmetric(vertical: isWeb ? 12.0 : 6.5),
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
           prefixIcon: Icon(

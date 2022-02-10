@@ -77,10 +77,11 @@ Widget builtAllWorkshopsBodyPosts(
     BuildContext context, BuiltAllWorkshopsPost posts,
     {Function reload}) {
   Size screensize = MediaQuery.of(context).size;
+  bool isWeb = screensize.width >= 500;
   return Row(
     children: <Widget>[
       Container(
-        height: screensize.height * 0.285,
+        height: isWeb ? 250 : screensize.height * 0.285,
         child: ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
@@ -127,7 +128,7 @@ Widget builtAllWorkshopsBodyPosts(
         ),
       ),
       Container(
-        height: screensize.height * 0.285,
+        height: isWeb ? 250 : screensize.height * 0.285,
         child: ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
@@ -189,8 +190,9 @@ class EventCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screensize = MediaQuery.of(context).size;
-    var cardwidth = screensize.width * 0.445;
-    var cardheight = screensize.height * 0.245;
+    bool isWeb = screensize.width >= 500;
+    var cardwidth = isWeb ? 200 : screensize.width * 0.445;
+    var cardheight = isWeb ? 200 : screensize.height * 0.245;
     return GestureDetector(
       onTap: null,
       child: Container(
