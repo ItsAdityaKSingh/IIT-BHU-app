@@ -209,7 +209,7 @@ class SideBar extends Drawer {
     BuiltList<EntityListPost> entities = AppConstants
         .entitiesSummaryFromDatabase
         ?.where((entity) => entity.is_highlighted == true)
-        .toBuiltList();
+        ?.toBuiltList();
     return ListView.builder(
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
