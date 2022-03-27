@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iit_app/external_libraries/fab_circular_menu.dart';
 import 'package:iit_app/model/built_post.dart';
 import 'package:iit_app/model/colorConstants.dart';
@@ -15,7 +16,13 @@ class SearchBarWidget {
       {GlobalKey<FabCircularMenuState> fabKey, FocusNode searchFocusNode}) {
     return StatefulBuilder(
       builder: (context, setState) => TextFormField(
-        style: TextStyle(color: ColorConstants.textColor),
+        style: GoogleFonts.notoSans(
+          textStyle: TextStyle(fontSize: 18,
+              // height: 2.0
+          ),
+          fontWeight: FontWeight.w500,
+          color: Color(0xFFb9d8ff)
+        ),
         focusNode: searchFocusNode,
         onTap: () {
           print('====================');
@@ -27,11 +34,15 @@ class SearchBarWidget {
         decoration: InputDecoration(
           hintText: 'Search Workshops ...',
           hintStyle:
-              Style.baseTextStyle.copyWith(color: ColorConstants.textColor),
-          prefixIcon: Icon(Icons.search, color: ColorConstants.textColor),
+              Style.baseTextStyle.copyWith(color: ColorConstants.btnColor),
+          prefixIcon: Icon(
+            Icons.search_rounded,
+            size: 30.0,
+            color: ColorConstants.btnColor,
+          ),
           suffixIcon: IconButton(
             icon: isSearching.value
-                ? Icon(Icons.clear, color: ColorConstants.textColor)
+                ? Icon(Icons.clear, color: ColorConstants.btnColor)
                 : Container(),
             onPressed: () {
               setState(() {

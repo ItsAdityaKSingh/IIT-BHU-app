@@ -12,6 +12,35 @@ abstract class PostApiService extends ChopperService {
 //! ------------------------------------------ Workshop end point APIs --------------------------------------------------------------
 
   //? ----------------------------------- Get -------------------------------
+  @Get(path: '/academics/academic-schedule/{dept}/{year}/')
+  Future<Response> getAcademicSchedule(@Path('dept') String dept,@Path('year') String yearOfJoining);
+
+  @Get(path: '/academics/profs/{dept}/')
+  Future<Response> getProfsAndHODs(@Path('dept') String dept);
+
+  @Get(path: '/academics/study-materials/{dept}/')
+  Future<Response> getStudyMaterials(@Path('dept') String dept);
+
+  @Get(path: '/parliamentSuggestions/')
+  Future<Response> getParliamentSuggestions();
+
+  @Get(path: '/parliamentSuggestions/{id}/')
+  Future<Response> getParliamentSuggestionDetails(
+      @Path('id') int id,@Header('Authorization') String token);
+
+  @Get(path: '/parliamentSuggestions/{id}/upvote/')
+  Future<Response> upvoteASuggestion(
+      @Path('id') int id,@Header('Authorization') String token);
+
+  @Get(path: '/parliamentSuggestions/{id}/downvote/')
+  Future<Response> downvoteASuggestion(
+      @Path('id') int id,@Header('Authorization') String token);
+
+  @Get(path: '/parliamentUpdates/')
+  Future<Response> getParliamentUpdates();
+
+  @Get(path: '/parliamentContact/')
+  Future<Response> getParliamentContacts();
 
   @Get(path: '/workshops/')
   Future<Response<BuiltAllWorkshopsPost>> getAllWorkshops();
@@ -365,6 +394,16 @@ abstract class PostApiService extends ChopperService {
   // Future<Response<BuiltList<ConfigVar>>> getConfigVars();
 
 //! ------------------------------------------ Grievance (Count) end point APIs --------------------------------------------------------------
+
+//! -----------------------------------------LostAndFound end point APIs --------------------------------------------------------------
+
+  //? ----------------------------------- Post -------------------------------
+
+  @Post(path: '/lostandfound/create/')
+  Future<Response<LostAndFound>> createLostAndFound(
+      @Header('Authorization') String token, @Body() LostAndFoundPost body);
+
+//! ------------------------------------------ LostAndFound end point APIs --------------------------------------------------------------
 
   static PostApiService create() {
     final client = ChopperClient(

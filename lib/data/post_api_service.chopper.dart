@@ -14,6 +14,63 @@ class _$PostApiService extends PostApiService {
 
   final definitionType = PostApiService;
 
+  Future<Response> getAcademicSchedule(String dept, String yearOfJoining) {
+    final $url = '/academics/academic-schedule/${dept}/${yearOfJoining}/';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  Future<Response> getProfsAndHODs(String dept) {
+    final $url = '/academics/profs/${dept}/';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  Future<Response> getStudyMaterials(String dept) {
+    final $url = '/academics/study-materials/${dept}/';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  Future<Response> getParliamentSuggestions() {
+    final $url = '/parliamentSuggestions/';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  Future<Response> getParliamentSuggestionDetails(int id, String token) {
+    final $url = '/parliamentSuggestions/${id}/';
+    final $headers = {'Authorization': token};
+    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  Future<Response> upvoteASuggestion(int id, String token) {
+    final $url = '/parliamentSuggestions/${id}/upvote/';
+    final $headers = {'Authorization': token};
+    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  Future<Response> downvoteASuggestion(int id, String token) {
+    final $url = '/parliamentSuggestions/${id}/downvote/';
+    final $headers = {'Authorization': token};
+    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  Future<Response> getParliamentUpdates() {
+    final $url = '/parliamentUpdates/';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  Future<Response> getParliamentContacts() {
+    final $url = '/parliamentContact/';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
   Future<Response<BuiltAllWorkshopsPost>> getAllWorkshops() {
     final $url = '/workshops/';
     final $request = Request('GET', $url, client.baseUrl);
@@ -508,5 +565,15 @@ class _$PostApiService extends PostApiService {
     final $request =
         Request('POST', $url, client.baseUrl, body: $body, headers: $headers);
     return client.send<Grievance, Grievance>($request);
+  }
+
+  Future<Response<LostAndFound>> createLostAndFound(
+      String token, LostAndFoundPost body) {
+    final $url = '/lostandfound/create/';
+    final $headers = {'Authorization': token};
+    final $body = body;
+    final $request =
+        Request('POST', $url, client.baseUrl, body: $body, headers: $headers);
+    return client.send<LostAndFound, LostAndFound>($request);
   }
 }

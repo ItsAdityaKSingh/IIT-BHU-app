@@ -112,9 +112,12 @@ class SideBar extends Drawer {
                 Icons.group_work, "All Workshops and Events", '/allWorkshops'),
             getNavItem(
                 Icons.work_rounded, 'All Entities and Fests', '/allEntities'),
+            getNavItem(
+                Icons.restaurant, 'Mess', '/Mess'),
             getNavItem(Icons.chrome_reader_mode_rounded, "Academics",
                 '/academicsPage'),
             _getActiveEntities(),
+            getNavItem(Icons.house_rounded, "Parliament", "/parliamentPage"),
             AppConstants.isGuest
                 ? ListTile(
                     title: Text("Account",
@@ -158,6 +161,7 @@ class SideBar extends Drawer {
             // getNavItem(Icons.comment, "Complaints & Suggestions", '/complaints'),
             getNavItem(Icons.settings, "Settings", '/settings'),
             getNavItem(Icons.comment, "Grievances", '/grievance'),
+            getNavItem(Icons.search_off, "Lost And Found", '/lostAndFound'),
             ListTile(
               leading: Icon(Icons.exit_to_app, color: ColorConstants.textColor),
               title: AppConstants.isGuest

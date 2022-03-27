@@ -76,7 +76,7 @@ class WorkshopDetailCustomWidgets {
       child: ListView(
         controller: sc,
         children: [
-          getHeading(icon: Icons.location_on, title: 'Location'),
+          getHeading(icon: Icons.location_on, title: 'Location',),
           SizedBox(height: 5.0),
           workshopDetail == null
               ? Container(
@@ -409,7 +409,7 @@ class WorkshopDetailCustomWidgets {
                                   if (snapshot.hasData) {
                                     Uri uri = snapshot.data;
                                     return IconButton(
-                                        color: ColorConstants.textColor,
+                                        color: ColorConstants.iconColor,
                                         icon: Icon(Icons.share),
                                         iconSize: 30.0,
                                         onPressed: () {
@@ -431,7 +431,7 @@ class WorkshopDetailCustomWidgets {
                                   if (snapshot.hasData) {
                                     Uri uri = snapshot.data;
                                     return IconButton(
-                                        color: ColorConstants.textColor,
+                                        color: ColorConstants.iconColor,
                                         icon: Icon(Icons.copy_outlined),
                                         iconSize: 30.0,
                                         onPressed: () {
@@ -542,7 +542,7 @@ class WorkshopDetailCustomWidgets {
             style: TextStyle(
                 fontFamily: 'Opensans',
                 fontSize: 15.0,
-                color: Colors.white,
+                color: ColorConstants.headingColor,
                 fontWeight: FontWeight.w600)),
         SizedBox(width: 20),
         workshopDetail == null
@@ -561,7 +561,7 @@ class WorkshopDetailCustomWidgets {
                 height: isPast ? 40 : 60.0,
                 width: isPast ? 50.0 : 130.0,
                 decoration: BoxDecoration(
-                    color: ColorConstants.workshopCardContainer,
+                    color: ColorConstants.porHolderBackground,
                     borderRadius: BorderRadius.circular(30.0)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -569,7 +569,7 @@ class WorkshopDetailCustomWidgets {
                     SizedBox(width: 7.0),
                     Text(
                       '${workshopDetail.interested_users}',
-                      style: TextStyle(fontSize: 14.0, color: Colors.white),
+                      style: TextStyle(fontSize: 14.0, color: ColorConstants.porTextColor),
                     ),
                     isPast
                         ? Container()
@@ -787,7 +787,14 @@ class WorkshopDetailCustomWidgets {
   Container getToolbar(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-      child: BackButton(color: Colors.lightGreen),
+      child: IconButton(
+          color: ColorConstants.iconColor,
+          iconSize: 30,
+          icon: Icon(Icons.arrow_back_ios_new_rounded),
+          onPressed: () async {
+          Navigator.of(context).pop();
+        },
+      ),
     );
   }
 
