@@ -21,6 +21,7 @@ import 'package:iit_app/pages/parliament/parliamentPage.dart';
 import 'package:iit_app/pages/newHomePage/newHomePage.dart';
 
 import 'package:iit_app/screens/newScreens/emergency.dart';
+import 'package:iit_app/screens/newScreens/futureupdate.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -65,6 +66,7 @@ void main() async {
       '/grievance': (BuildContext context) => GrievancePage(),
       '/lostAndFound': (BuildContext context) => LostAndFoundPage(),
       '/emergency': (BuildContext context) => Emergency(),
+      '/future': (BuildContext context) => FutureUpdate(),
     },
   ));
 }
