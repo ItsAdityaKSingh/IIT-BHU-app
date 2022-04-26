@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iit_app/model/appConstants.dart';
 import 'package:iit_app/model/built_post.dart';
 import 'package:iit_app/model/colorConstants.dart';
+import 'package:iit_app/pages/newHomePage/newHomePage.dart';
 import 'package:iit_app/ui/dialogBoxes.dart';
 import 'package:iit_app/pages/club_entity/entityPage.dart';
 import 'package:iit_app/ui/text_style.dart';
@@ -33,6 +34,13 @@ class SideBar extends Drawer {
         Navigator.of(context).pushNamed(routeName);
       },
     );
+  }
+
+  onResetDatabase() async {
+    await AppConstants.deleteAllLocalDataWithImages();
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => NewHomePage()),
+        ModalRoute.withName('/root'));
   }
 
   @override
@@ -139,7 +147,13 @@ class SideBar extends Drawer {
                   )
                 : getNavItem(Icons.account_box, "Profile", '/profile'),
             // getNavItem(Icons.comment, "Complaints & Suggestions", '/complaints'),
-            getNavItem(Icons.settings, "Settings", '/settings'),
+            ListTile(
+              leading: Icon(Icons.settings, color: ColorConstants.textColor),
+              title: Text("Reset Saved Data",
+                  style: Style.baseTextStyle
+                      .copyWith(color: ColorConstants.textColor)),
+              onTap: onResetDatabase,
+            ),
             getNavItem(Icons.comment, "Grievances", '/grievance'),
             getNavItem(Icons.search_off, "Lost And Found", '/lostAndFound'),
             getNavItem(Icons.warning_rounded, "Emergency", '/emergency'),

@@ -20,7 +20,6 @@ import 'package:iit_app/pages/parliament/parliamentPage.dart';
 
 import 'package:iit_app/pages/newHomePage/newHomePage.dart';
 
-import 'package:iit_app/pages/settings/settingsPage.dart';
 import 'package:iit_app/screens/newScreens/emergency.dart';
 
 void main() async {
@@ -59,7 +58,7 @@ void main() async {
       '/profile': (BuildContext context) => ProfilePage(),
       '/account': (BuildContext context) => AccountPage(),
       '/Mess': (BuildContext context) => MessScreen(),
-      '/settings': (BuildContext context) => SettingsScreen(),
+      // '/reset': (BuildContext context) => SettingsScreen(),
       '/complaints': (BuildContext context) => ComplaintsScreen(),
       '/login': (BuildContext context) => LoginPage(),
       '/about': (BuildContext context) => AboutPage(),
