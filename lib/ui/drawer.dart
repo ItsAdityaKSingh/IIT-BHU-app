@@ -148,7 +148,8 @@ class SideBar extends Drawer {
                 : getNavItem(Icons.account_box, "Profile", '/profile'),
             // getNavItem(Icons.comment, "Complaints & Suggestions", '/complaints'),
             ListTile(
-              leading: Icon(Icons.settings, color: ColorConstants.textColor),
+              leading: Icon(Icons.restart_alt_rounded,
+                  color: ColorConstants.textColor),
               title: Text("Reset Saved Data",
                   style: Style.baseTextStyle
                       .copyWith(color: ColorConstants.textColor)),
