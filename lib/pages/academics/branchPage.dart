@@ -176,26 +176,24 @@ class _BranchPageState extends State<BranchPage> {
 
   void showSnackBar(
       BuildContext context, String text, Color textColor, Color bgColor) {
-    final snackBar = new SnackBar(
+    //Scaffold.of(context).showSnackBar(snackBar);
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       duration: Duration(seconds: 2),
       margin: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-      content: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(
-            text,
-            style: TextStyle(color: textColor, fontWeight: FontWeight.w400),
-          ),
-        ],
+      content: Text(
+        text,
+        style: TextStyle(color: textColor, fontWeight: FontWeight.w400),
       ),
-      backgroundColor: bgColor,
+      backgroundColor: bgColor.withOpacity(0.8),
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-      behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(20))),
-    );
-    //Scaffold.of(context).showSnackBar(snackBar);
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        borderRadius: BorderRadius.all(
+          Radius.circular(10),
+        ),
+      ),
+      behavior: SnackBarBehavior.floating,
+      elevation: 5,
+    ));
   }
 
   Container academicInfo(String reqInfo, String img) {
