@@ -179,13 +179,11 @@ class _BranchPageState extends State<BranchPage> {
     //Scaffold.of(context).showSnackBar(snackBar);
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       duration: Duration(seconds: 2),
-      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
       content: Text(
         text,
         style: TextStyle(color: textColor, fontWeight: FontWeight.w400),
       ),
       backgroundColor: bgColor.withOpacity(0.8),
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(10),

@@ -129,7 +129,7 @@ class SideBar extends Drawer {
 
             AppConstants.isGuest
                 ? ListTile(
-                    title: Text("New Profile",
+                    title: Text("Profile",
                         style: Style.baseTextStyle
                             .copyWith(color: ColorConstants.textColor)),
                     leading: Icon(Icons.account_box,
@@ -140,9 +140,21 @@ class SideBar extends Drawer {
                       Navigator.pop(context);
                       return ScaffoldMessenger.of(context)
                           .showSnackBar(SnackBar(
-                        elevation: 10,
-                        content: Text('You must be logged in'),
                         duration: Duration(seconds: 2),
+                        content: Text(
+                          "You must be logged in!",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15),
+                        ),
+                        backgroundColor: Color(0xFFBBD9FF).withOpacity(0.8),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                        ),
+                        elevation: 5,
                       ));
                     },
                   )
